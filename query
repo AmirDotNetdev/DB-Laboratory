@@ -1,0 +1,14 @@
+CREATE TABLE users (
+    user-id int,
+    name varchar(255),
+    payment varchar(255),
+    Address varchar(255),
+    phone-number int(11),
+    date-created date
+);
+CREATE TABLE messages (
+    creator-id int,
+    title varchar(255),
+    body varchar(255),
+    date-answerd date
+);
