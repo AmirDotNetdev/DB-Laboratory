@@ -1,48 +1,28 @@
-<<<<<<< HEAD
 <?php
 
 include('setting.php');
-$conn = new mysqli($host, $username, $psw,$database);
+$conn = new mysqli($host, $username, $psw, $database);
 
-if($conn>->connect_error)
-die("connection faild");
-else
-echo "success";
+if ($conn->connect_error) {
+    die("connection failed");
+} else {
+    echo "success";
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $availble = $_POST['availble'];
+    $desc = $_POST['desc'];
+    $status = $_POST['status'];
+    $image = $_POST['image'];
+    $categorie = $_POST['categorie'];
 
+    $sql = "INSERT INTO products (name, price, availabe, `description`, status, image, categorie) VALUES ('$name', '$price', '$availble', '$desc', '$status', '$image', '$categorie')";
 
-$sql="INSERT INTO product (name,description,price) VALUSE ("khazan","fgdfg",50000)";
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-  
-  $conn->close();
-
-
-=======
-<?php
-
-include('setting.php');
-$conn = new mysqli($host, $username, $psw,$database);
-
-if($conn>->connect_error)
-die("connection faild");
-else
-echo "success";
-
-
-$sql="INSERT INTO product (name,description,price) VALUSE ("khazan","fgdfg",50000)";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-  
-  $conn->close();
-
-
->>>>>>> 6f823102ec8f91203d62aa51844d903b59e9dba7
+    $conn->close();
+}
 ?>

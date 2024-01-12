@@ -1,14 +1,11 @@
 CREATE TABLE users (
-    user-id int,
-    name varchar(255),
-    payment varchar(255),
-    Address varchar(255),
-    phone-number int(11),
-    date-created date
+    id int PRIMARY KEY AUTO INCREMENT,
+    first_name varchar(255),
+    last_name varchar(255),
+    phone_number int(20),
+    email varchar(50),
+    address varchar(50),
+    password varchar(50)
+    
 );
-CREATE TABLE messages (
-    creator-id int,
-    title varchar(255),
-    body varchar(255),
-    date-answerd date
-);
+
